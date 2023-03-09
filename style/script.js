@@ -1,6 +1,13 @@
 const grid = document.querySelector('.grid');
 const resetGrid = document.querySelector('.reset');
 const btnChangeSize = document.querySelector('.btnChangeSize');
+const inputColor = document.querySelector('.inputColor');
+const btnClear = document.querySelector('.btnClear');
+const btnPencil = document.querySelector('.btnPencil');
+
+
+
+let color;
 let squares = [];
 let user,userSquares;
 
@@ -11,26 +18,39 @@ function makeGrid(rows, cols) {
         let square = document.createElement('div');
         square.classList.add('grid-item');
         squares.push(square);
+        grid.style.maxWidth='700px';
+        grid.style.maxHeigth='700px';
         grid.appendChild(square);
 
     };
 };
 
+inputColor.addEventListener('click', () => {
+    color = inputColor.value;
+});
+btnPencil.addEventListener('click',(e) => {
+    color = inputColor.value;
+});
+btnClear.addEventListener('click', (e) => {
+    color = '#FFFFFF';
+});
+
 grid.addEventListener('mouseover', function (e) {
     if (e.target.classList.contains('grid-item')) {
-        e.target.style.backgroundColor = 'blue';
+        console.log(inputColor.value);
+        e.target.style.backgroundColor = color;
     }
 
 
-})
-grid.addEventListener('mouseleave', function (e) {
+});
+grid.addEventListener('mouseleave', function () {
     grid.style.backgroundColor = 'white';
 
 });
 function askSize() {
     do {
-        user = Number(prompt('Number of squares per side:     (MAX: 100)'));
-    } while (user > 100 || user === 0 || isNaN(user));
+        user = Number(prompt('Number of squares per side:     (MAX: 55)'));
+    } while (user > 55 || user === 0 || isNaN(user));
     return user;
 }
 resetGrid.addEventListener('click', () => {
@@ -41,6 +61,10 @@ resetGrid.addEventListener('click', () => {
     makeGrid(16,16);
 });
 btnChangeSize.addEventListener('click', () => {
+    squares.forEach(squares=> {
+        grid.removeChild(squares);3
+    });
+    squares = [];
     userSquares = askSize();
     makeGrid(userSquares, userSquares);
      

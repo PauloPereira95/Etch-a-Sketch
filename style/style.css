@@ -2,13 +2,15 @@
     --grid-cols: 1;
     --grid-rows: 1;
 }
-
+.titulo{
+    text-align: center;
+}
 
 .grid {
     display: grid;
     padding: 0;
-    width: 800px;
-    height: 800px;
+    width: 700px ;
+    height: 700px;
     grid-template-columns: repeat(var(--grid-rows),1fr);
     grid-template-rows: repeat(var(--grid-cols),1fr);
 }
@@ -16,7 +18,23 @@
     padding: 5px;
     border: 1px solid black;
     text-align: center;
+
 }
 .reset{
     margin-top: 10px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 300px;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.color{
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
