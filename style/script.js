@@ -28,12 +28,10 @@ grid.addEventListener('mouseleave', function (e) {
 
 });
 function askSize() {
-     do {
-        user = Number(prompt('Number of squares per side'));
-        console.log(user);
-    } while (user > 100 || user === 'NaN' || user === 'undefined');
+    do {
+        user = Number(prompt('Number of squares per side:     (MAX: 100)'));
+    } while (user > 100 || user === 0 || isNaN(user));
     return user;
-    
 }
 resetGrid.addEventListener('click', () => {
     squares.forEach(squares=> {
