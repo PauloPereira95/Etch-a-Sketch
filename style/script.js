@@ -6,8 +6,6 @@ const btnClear = document.querySelector('.btnClear');
 const btnPencil = document.querySelector('.btnPencil');
 
 
-
-let color;
 let squares = [];
 let user,userSquares;
 
@@ -25,9 +23,7 @@ function makeGrid(rows, cols) {
     };
 };
 
-inputColor.addEventListener('click', () => {
-    color = inputColor.value;
-});
+
 btnPencil.addEventListener('click',(e) => {
     color = inputColor.value;
 });
@@ -36,6 +32,7 @@ btnClear.addEventListener('click', (e) => {
 });
 
 grid.addEventListener('mouseover', function (e) {
+    color = inputColor.value;
     if (e.target.classList.contains('grid-item')) {
         console.log(inputColor.value);
         e.target.style.backgroundColor = color;
@@ -58,7 +55,7 @@ resetGrid.addEventListener('click', () => {
         grid.removeChild(squares);3
     });
     squares = [];
-    makeGrid(16,16);
+    makeGrid(userSquares,userSquares);
 });
 btnChangeSize.addEventListener('click', () => {
     squares.forEach(squares=> {
