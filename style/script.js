@@ -7,7 +7,7 @@ const btnPencil = document.querySelector('.btnPencil');
 
 
 let squares = [];
-let user,userSquares;
+let user,userSquares,color;
 
 function makeGrid(rows, cols) {
     grid.style.setProperty('--grid-rows', rows);
@@ -23,16 +23,15 @@ function makeGrid(rows, cols) {
     };
 };
 
-
-btnPencil.addEventListener('click',(e) => {
+/*btnPencil.addEventListener('click',(e) => {
     color = inputColor.value;
-});
+});*/
 btnClear.addEventListener('click', (e) => {
-    color = '#FFFFFF';
+    inputColor.value="#ffffff";
 });
 
 grid.addEventListener('mouseover', function (e) {
-    color = inputColor.value;
+    color = inputColor.value; // conflito com btn clear
     if (e.target.classList.contains('grid-item')) {
         console.log(inputColor.value);
         e.target.style.backgroundColor = color;

@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
+    <!--Fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+
+    <!---->
     <title>Etch-a-Sketch</title>
 </head>
+
 <body>
     <h1 class="titulo">Etch-a-Sketch</h1>
     <div class="container">
         <div class="options">
             <div class="color">
-                <p>Select Color</p>
-                <input type="color" class="inputColor" name="inputColor" id="inputColor"
-                    value="ff5733">
-                <button class="btnPencil">Pencil</button>
-                <button class="btnClear">Clear</button>
+                <div class="opt-color">
+                    <p>Select Color</p>
+                    <div class="input-btn">
+                        <input type="color" class="inputColor" name="inputColor" id="inputColor" value="ff5733">
+                        <button class="btnClear">Clear</button>
+                    </div>
+                </div>
             </div>
             <div class="btns">
                 <button class="btnChangeSize">Change Size</button>
                 <button class="reset">Reset Grid</button>
             </div>
         </div>
-        <div class="grid">
+        <div class="grid-back">
+            <div class="grid">
+            </div>
         </div>
     </div>
     <script src="./style/script.js"></script>
 </body>
+
 </html>
