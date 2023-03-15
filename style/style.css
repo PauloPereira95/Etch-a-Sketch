@@ -14,8 +14,8 @@ p{
 .titulo{
     text-align: center;
     font-size: 50px;
-    border-bottom: 5px solid gray;
-    border-top: 5px solid gray;
+    border-bottom: 5px solid rgb(0, 0, 0);
+    border-top: 5px solid rgb(0, 0, 0);
     text-shadow: 0 1px 0 #ccc,
     0 2px 0 #c9c9c9,
     0 3px 0 #bbb,
@@ -31,7 +31,8 @@ p{
     padding: 10px;
     font-family: 'Varela Round', sans-serif;
     letter-spacing: 8px;
-    color: rgb(0, 0, 0);
+    color: rgb(45, 67, 190);
+    
 }
 
 .grid {
@@ -105,5 +106,5 @@ button{
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;}
 button:hover{
  color: white;
- background-color: gray;
+ background-color: rgb(238, 188, 25);
 }
