@@ -31,14 +31,14 @@ p{
     padding: 10px;
     font-family: 'Varela Round', sans-serif;
     letter-spacing: 8px;
-    color: rgb(45, 67, 190);
+    color: rgb(10, 22, 88);
     
 }
 
 .grid {
     display: grid;
     padding: 0;
-    width: 700px ;
+    width: 700px;
     height: 700px;
     grid-template-columns: repeat(var(--grid-rows),1fr);
     grid-template-rows: repeat(var(--grid-cols),1fr);
