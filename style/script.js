@@ -5,6 +5,7 @@ const inputColor = document.querySelector('.inputColor');
 const btnClear = document.querySelector('.btnClear');
 const btnPencil = document.querySelector('.btnPencil');
 const rndRGB = document.querySelector('.btnRandonPencil');
+const btnPass = document.querySelector('.btnPassing'); 
 
 
 let squares = [];
@@ -49,6 +50,20 @@ grid.addEventListener('mouseover', function (e) {
                 console.log(color);
                 e.target.style.backgroundColor = color;
             break;
+            case 'pass':
+                if (e.target.style.backgroundColor.match(/rgba/)) {
+                    let currentOpacity = Number(e.target.style.backgroundColor.slice(-4, -1));
+                    if (currentOpacity <= 0.8) {
+                        e.target.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
+                        e.target.classList.add('gray');
+                    }
+                } else if (  e.target.style.classList === 'gray' &&   e.target.style.style.backgroundColor === 'rgb(0, 0, 0)') {
+                    return;
+                } else {
+                    console.log('f')
+                    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';  
+                }
+            break;
         default:
             console.log('erro!');
             break;
@@ -62,19 +77,22 @@ grid.addEventListener('mouseleave', function () {
 });
 resetGrid.addEventListener('click', () => {
     squares.forEach(squares=> {
-        grid.removeChild(squares);3
+        grid.removeChild(squares);
     });
     squares = [];
     makeGrid(userSquares,userSquares);
 });
 btnChangeSize.addEventListener('click', () => {
     squares.forEach(squares=> {
-        grid.removeChild(squares);3
+        grid.removeChild(squares);
     });
     squares = [];
     userSquares = askSize();
     makeGrid(userSquares, userSquares);
      
+});
+btnPass.addEventListener('click', () => {
+    state = 'pass'
 });
 function rndRgb() {
     let r = Math.floor(Math.random() * 255);
@@ -84,6 +102,15 @@ function rndRgb() {
     console.log(rbgColor);
     return rbgColor;
 }
+
+function passingBlack() {
+    for (let i = 0; i < 10; i++) {
+        
+    }
+    let black = 'rgb(0, 0, 0,0.1)';
+    return black;
+}
+
 function askSize() {
     do {
         user = Number(prompt('Number of squares per side:     (MAX: 55)'));
