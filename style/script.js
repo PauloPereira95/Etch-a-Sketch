@@ -4,6 +4,7 @@ const btnChangeSize = document.querySelector('.btnChangeSize');
 const inputColor = document.querySelector('.inputColor');
 const btnClear = document.querySelector('.btnClear');
 const btnPencil = document.querySelector('.btnPencil');
+const rndRGB = document.querySelector('.btnRandonPencil');
 
 
 let squares = [];
@@ -22,7 +23,9 @@ btnClear.addEventListener('click', (e) => {
     state = 'clear';
     //inputColor.value="#ffffff";
 });
-
+rndRGB.addEventListener('click', () => {
+    state = 'rnd';
+});
 grid.addEventListener('mouseover', function (e) {
     switch (state) {
         case 'clear':
@@ -40,6 +43,11 @@ grid.addEventListener('mouseover', function (e) {
                     console.log(inputColor.value);
                     e.target.style.backgroundColor = inputColor.value;
                 }
+            break;
+            case 'rnd':
+                color = rndRgb();
+                console.log(color);
+                e.target.style.backgroundColor = color;
             break;
         default:
             console.log('erro!');
@@ -72,8 +80,9 @@ function rndRgb() {
     let r = Math.floor(Math.random() * 255);
     let g = Math.floor(Math.random() * 255);
     let b = Math.floor(Math.random() * 255);
-
-    
+    let rbgColor = `rgb(${r},${g},${b})`;
+    console.log(rbgColor);
+    return rbgColor;
 }
 function askSize() {
     do {
