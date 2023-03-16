@@ -52,15 +52,15 @@ grid.addEventListener('mouseover', function (e) {
             break;
             case 'pass':
                 if (e.target.style.backgroundColor.match(/rgba/)) {
+                    console.log(e.target.style.backgroundColor);
                     let currentOpacity = Number(e.target.style.backgroundColor.slice(-4, -1));
-                    if (currentOpacity <= 0.8) {
+                    if (currentOpacity <= 0.9) {
                         e.target.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
                         e.target.classList.add('gray');
                     }
-                } else if (  e.target.style.classList === 'gray' &&   e.target.style.style.backgroundColor === 'rgb(0, 0, 0)') {
+                } else if (  e.target.style.classList === 'gray' ||   e.target.style.backgroundColor === 'rgb(0, 0, 0)') {
                     return;
                 } else {
-                    console.log('f')
                     e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';  
                 }
             break;
