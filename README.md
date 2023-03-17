@@ -8,3 +8,4 @@ Com disponiblidade de oferecer um Etch-a-Sketch com 55 quadrados é possivel :
 - Apagar a area determinada pelo utilziador ou simplesmente tudo fazendo reset
 - Mudar disposicao a qualquer altura
 
+![shot_proj](shot_proj.png)
